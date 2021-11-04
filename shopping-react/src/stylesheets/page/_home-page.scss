@@ -92,7 +92,7 @@
 .section-suggestions {
   margin-top: 6rem 0 3rem 0;
 }
-.section-introduct {
+.section-introduction {
   padding: 0 0.625rem;
   margin: 3rem 0;
   background-color: map-get($color, "gray-f");
@@ -112,7 +112,7 @@
     background-color: map-get($color, "white");
     border-radius: 10px;
   }
-  .introduct-card {
+  .introduction-card {
     display: flex;
     flex-direction: row;
     .card-title {
@@ -207,8 +207,8 @@
   .logo-link {
     color: map-get($color, "white");
   }
-  .section-introduct {
-    .introduct-card {
+  .section-introduction {
+    .introduction-card {
       flex-direction: column;
     }
   }
