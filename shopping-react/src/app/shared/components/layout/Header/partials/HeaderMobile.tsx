@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 import logo from 'assets/images/logo_black.svg';
 import cart from 'assets/images/cart_black.svg';
 import avatar from 'assets/images/avatar_black.svg';
@@ -10,18 +12,18 @@ const HeaderMobile = () => {
     <div className='header-mobile container'>
       <div className='row'>
         <h1 className='header-logo col-2'>
-          <a href='/#' className='logo-link shop-name'>
+          <Link to='/' className='logo-link shop-name'>
             <img className='logo' src={logo} alt='E-shop' />
             E-Shop
-          </a>
+          </Link>
         </h1>
         <div className='col-4'>
           <ul className='list-group'>
             <li className='list-item'>
-              <a className='logo-link' href='/#'>
+              <Link to="/cart" className='logo-link'>
                 <img src={cart} alt='cart_black_icon' />
                 <div className='cart'></div>
-              </a>
+              </Link>
             </li>
             <li className='list-item'>
               <a className='logo-link' href='/#'>

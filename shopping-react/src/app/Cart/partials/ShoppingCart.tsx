@@ -1,11 +1,24 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+import CartItem from "./CartItem";
+
 import sendIcon from 'assets/images/send.svg'
 import arrowLeft from 'assets/images/arrow-left.svg'
 import cartIcon from 'assets/images/cart.svg'
 import deliveryIcon from 'assets/images/delivery.svg'
 
+import { useSelector } from "react-redux";
+import { rootState } from "store/rootReducer";
+import { productAttribute } from "app/shared/model/product-interface";
+
+
 const ShoppingCart = () => {
+  const listCartItem: productAttribute[] = useSelector((state: rootState) => state.cart?.listItem);
+  const totalPrice = listCartItem.reduce(
+    (total: number, item: productAttribute) =>
+      total + (item.quantity || 1) * item.price, 0);
+
   return (
     <section className="section-shopping-cart">
       <div className="container">
@@ -30,14 +43,14 @@ const ShoppingCart = () => {
               </tr>
             </thead>
             <tbody className="shopping-product-table">
-
+                {listCartItem?.map((item: productAttribute) => CartItem(item))}
             </tbody>
           </table>
           <form className="checkout-form row">
             <h4 className="col-xl-4">
-              <a href="/#" className="redirect-home-page">
+              <Link to="/" className="redirect-home-page">
                 <img src={arrowLeft} alt="arrow_left" /> Continue Shopping
-              </a>
+              </Link>
             </h4>
             <div className="btn btn-outline input-area col-xl-3">
               <input className="input-code" type="text" placeholder="Promo code" />
@@ -45,7 +58,7 @@ const ShoppingCart = () => {
             </div>
             <div className="total-area col-xl-2">
               <p>Total cost </p>
-              {/* <h4 className="total-price"></h4> */}
+              <h4 className="total-price">{totalPrice.toFixed(2)}</h4>
             </div>
             <button type="button" className="col-xl-2 btn btn-primary">
               checkout

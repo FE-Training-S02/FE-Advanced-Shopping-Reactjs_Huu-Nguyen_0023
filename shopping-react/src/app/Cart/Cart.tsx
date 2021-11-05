@@ -1,14 +1,17 @@
+
 import React from "react";
 
-import Header from './partials/Header'
+
+import Header from "./partials/Header";
 import ShoppingCart from "./partials/ShoppingCart";
 
 const Cart = () => {
+
   return (
     <div id="cart-page">
       <Header />
       <main>
-        <ShoppingCart/>
+        <ShoppingCart />
       </main>
     </div>
   );
