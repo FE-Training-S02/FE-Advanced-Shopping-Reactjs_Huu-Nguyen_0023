@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-import HeaderDesktop from './partials/HeaderDesktop';
-import HeaderMobile from './partials/HeaderMobile';
+import HeaderDesktop from "./partials/HeaderDesktop";
+import HeaderMobile from "./partials/HeaderMobile";
 
 const Header = () => {
   return (
-    <header className='page-header'>
+    <header className="page-header">
       <HeaderMobile />
       <HeaderDesktop />
     </header>

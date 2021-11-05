@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import logo from "assets/images/logo_black.svg";
 import searchIcon from "assets/images/search_black.svg";

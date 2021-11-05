@@ -6,7 +6,7 @@ import { addToCart } from "store/cart/actions";
 
 const ProductCard = (props: productAttribute) => {
   const { id, name, url, price, discount } = props;
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
   return (
     <li key={id} className="list-item col-6 col-xl-3">
       <div className="card product-card">
@@ -14,10 +14,7 @@ const ProductCard = (props: productAttribute) => {
           <img src={url} alt={name} />
         </div>
         {discount > 0 ? <p className="badge badge-danger">{discount * 100}%</p> : ""}
-        <button
-          className="btn btn-primary add-cart-btn"
-          onClick={() => dispatch(addToCart(id))}
-        >
+        <button className="btn btn-primary add-cart-btn" onClick={() => dispatch(addToCart(id))}>
           ADD TO CART
         </button>
         <div className="card-detail">

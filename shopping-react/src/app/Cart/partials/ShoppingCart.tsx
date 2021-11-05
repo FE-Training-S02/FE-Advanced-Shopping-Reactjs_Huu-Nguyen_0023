@@ -3,21 +3,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 
-import sendIcon from 'assets/images/send.svg'
-import arrowLeft from 'assets/images/arrow-left.svg'
-import cartIcon from 'assets/images/cart.svg'
-import deliveryIcon from 'assets/images/delivery.svg'
+import sendIcon from "assets/images/send.svg";
+import arrowLeft from "assets/images/arrow-left.svg";
+import cartIcon from "assets/images/cart.svg";
+import deliveryIcon from "assets/images/delivery.svg";
 
 import { useSelector } from "react-redux";
 import { rootState } from "store/rootReducer";
 import { productAttribute } from "app/shared/model/product-interface";
 
-
 const ShoppingCart = () => {
   const listCartItem: productAttribute[] = useSelector((state: rootState) => state.cart?.listItem);
   const totalPrice = listCartItem.reduce(
-    (total: number, item: productAttribute) =>
-      total + (item.quantity || 1) * item.price, 0);
+    (total: number, item: productAttribute) => total + (item.quantity || 1) * item.price,
+    0
+  );
 
   return (
     <section className="section-shopping-cart">
@@ -43,7 +43,7 @@ const ShoppingCart = () => {
               </tr>
             </thead>
             <tbody className="shopping-product-table">
-                {listCartItem?.map((item: productAttribute) => CartItem(item))}
+              {listCartItem?.map((item: productAttribute) => CartItem(item))}
             </tbody>
           </table>
           <form className="checkout-form row">
