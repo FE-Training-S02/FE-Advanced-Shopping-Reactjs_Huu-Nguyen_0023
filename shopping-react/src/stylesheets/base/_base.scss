@@ -7,11 +7,11 @@ html {
 }
 body {
   position: relative;
-  font-size: map-get($font-size, "s");
+  font-size: map-get($font-size, 's');
 }
 h3 {
-  @include font-size-weight(map-get($font-size, "xxxl"), 300);
-  color: map-get($color, "black");
+  @include font-size-weight(map-get($font-size, 'xxxl'), 300);
+  color: map-get($color, 'black');
 }
 a {
   text-decoration: none;

@@ -1,21 +1,25 @@
-import React from "react";
+import React from 'react';
 
-import { Link } from "react-router-dom";
-import CartItem from "./CartItem";
+import { Link } from 'react-router-dom';
 
-import sendIcon from "assets/images/send.svg";
-import arrowLeft from "assets/images/arrow-left.svg";
-import cartIcon from "assets/images/cart.svg";
-import deliveryIcon from "assets/images/delivery.svg";
+import CartItem from './CartItem';
 
-import { useSelector } from "react-redux";
-import { rootState } from "store/rootReducer";
-import { productAttribute } from "app/shared/model/product-interface";
+import sendIcon from 'assets/images/send.svg';
+import arrowLeft from 'assets/images/arrow-left.svg';
+import cartIcon from 'assets/images/cart.svg';
+import deliveryIcon from 'assets/images/delivery.svg';
+
+import { useSelector } from 'react-redux';
+import { rootState } from 'store/rootReducer';
+import { productAttribute } from 'app/shared/model/product-interface';
 
 const ShoppingCart = () => {
-  const listCartItem: productAttribute[] = useSelector((state: rootState) => state.cart?.listItem);
+  const listCartItem: productAttribute[] = useSelector(
+    (state: rootState) => state.cart?.listItem
+  );
   const totalPrice = listCartItem.reduce(
-    (total: number, item: productAttribute) => total + (item.quantity || 1) * item.price,
+    (total: number, item: productAttribute) =>
+      total + (item.quantity || 1) * item.price,
     0
   );
 
@@ -37,7 +41,9 @@ const ShoppingCart = () => {
                 <td className="table-title col-xl-4">Product</td>
                 <td className="table-title text-center col-xl-2">Color</td>
                 <td className="table-title text-center col-xl-1">Size</td>
-                <td className="table-title text-center col-xl-1 text-align-center">Amount</td>
+                <td className="table-title text-center col-xl-1 text-align-center">
+                  Amount
+                </td>
                 <td className="table-title text-center col-xl-3">Price</td>
                 <td className="table-title text-center col-xl-1"></td>
               </tr>
@@ -53,7 +59,11 @@ const ShoppingCart = () => {
               </Link>
             </h4>
             <div className="btn btn-outline input-area col-xl-3">
-              <input className="input-code" type="text" placeholder="Promo code" />
+              <input
+                className="input-code"
+                type="text"
+                placeholder="Promo code"
+              />
               <img src={sendIcon} alt="send" />
             </div>
             <div className="total-area col-xl-2">

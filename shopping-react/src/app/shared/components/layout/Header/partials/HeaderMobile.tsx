@@ -9,30 +9,30 @@ import menuIcon from 'assets/images/menu_icon.svg';
 
 const HeaderMobile = () => {
   return (
-    <div className='header-mobile container'>
-      <div className='row'>
-        <h1 className='header-logo col-2'>
-          <Link to='/' className='logo-link shop-name'>
-            <img className='logo' src={logo} alt='E-shop' />
+    <div className="header-mobile container">
+      <div className="row">
+        <h1 className="header-logo col-2">
+          <Link to="/" className="logo-link shop-name">
+            <img className="logo" src={logo} alt="E-shop" />
             E-Shop
           </Link>
         </h1>
-        <div className='col-4'>
-          <ul className='list-group'>
-            <li className='list-item'>
-              <Link to="/cart" className='logo-link'>
-                <img src={cart} alt='cart_black_icon' />
-                <div className='cart'></div>
+        <div className="col-4">
+          <ul className="list-group">
+            <li className="list-item">
+              <Link to="/cart" className="logo-link">
+                <img src={cart} alt="cart_black_icon" />
+                <div className="cart"></div>
               </Link>
             </li>
-            <li className='list-item'>
-              <a className='logo-link' href='/#'>
-                <img src={avatar} alt='avatar_black_icon' />
+            <li className="list-item">
+              <a className="logo-link" href="/#">
+                <img src={avatar} alt="avatar_black_icon" />
               </a>
             </li>
-            <li className='list-item'>
-              <a className='logo-link' href='/#'>
-                <img src={menuIcon} alt='menu_icon' />
+            <li className="list-item">
+              <a className="logo-link" href="/#">
+                <img src={menuIcon} alt="menu_icon" />
               </a>
             </li>
           </ul>

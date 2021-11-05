@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import { productAttribute } from "app/shared/model/product-interface";
-import { useDispatch } from "react-redux";
-import { addToCart } from "store/cart/actions";
+import { productAttribute } from 'app/shared/model/product-interface';
+import { useDispatch } from 'react-redux';
+import { addToCart } from 'store/cart/actions';
 
 const ProductCard = (props: productAttribute) => {
   const { id, name, url, price, discount } = props;
@@ -13,17 +13,28 @@ const ProductCard = (props: productAttribute) => {
         <div className="card-image">
           <img src={url} alt={name} />
         </div>
-        {discount > 0 ? <p className="badge badge-danger">{discount * 100}%</p> : ""}
-        <button className="btn btn-primary add-cart-btn" onClick={() => dispatch(addToCart(id))}>
+        {discount > 0 ? (
+          <p className="badge badge-danger">{discount * 100}%</p>
+        ) : (
+          ''
+        )}
+        <button
+          className="btn btn-primary add-cart-btn"
+          onClick={() => dispatch(addToCart(id))}
+        >
           ADD TO CART
         </button>
         <div className="card-detail">
           <h4 className="card-name">{name}</h4>
           <div className="card-price">
-            <p className={discount > 0 ? "price price-sale-off" : "price"}>
+            <p className={discount > 0 ? 'price price-sale-off' : 'price'}>
               $ {price * (1 - discount)}
             </p>
-            {discount > 0 ? <p className="price price-initial">$ {price}</p> : ""}
+            {discount > 0 ? (
+              <p className="price price-initial">$ {price}</p>
+            ) : (
+              ''
+            )}
           </div>
         </div>
       </div>

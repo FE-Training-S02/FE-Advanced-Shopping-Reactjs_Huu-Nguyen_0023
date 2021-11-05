@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { productAttribute } from "app/shared/model/product-interface";
-import listProduct from "../../../shared/fake-data/list-product.json";
-import ProductCard from "app/shared/components/partials/ProductCard/ProductCard";
+import { productAttribute } from 'app/shared/model/product-interface';
+import listProduct from '../../../shared/fake-data/list-product.json';
+import ProductCard from 'app/shared/components/partials/ProductCard/ProductCard';
 
 const Suggestion = () => {
   const [products, setProducts] = useState<productAttribute[]>(listProduct);
@@ -17,7 +17,7 @@ const Suggestion = () => {
         <ul className="list-group row" id="list-product">
           {products.length > 0
             ? products.map((product: productAttribute) => ProductCard(product))
-            : ""}
+            : ''}
         </ul>
       </div>
     </section>

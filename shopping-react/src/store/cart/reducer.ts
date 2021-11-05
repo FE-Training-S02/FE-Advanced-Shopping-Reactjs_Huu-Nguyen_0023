@@ -1,39 +1,42 @@
-
 // import { productAttribute } from 'app/shared/model/product-interface';
-import listProduct from 'app/shared/fake-data/list-product.json'
+import listProduct from 'app/shared/fake-data/list-product.json';
 
 const initialState = {
-  products : listProduct,
-  listItem : JSON.parse(localStorage.getItem('cart') || '[]')
-}
+  products: listProduct,
+  listItem: JSON.parse(localStorage.getItem('cart') || '[]'),
+};
 
-const cartReducer = (state=initialState,action:any)=>{
-  switch (action.type){
-    case 'ADD_TO_CART':{
-      const newListItem=[...state.listItem];
-      const index = newListItem.findIndex((obj:any) => obj.id === action.payload);
+const cartReducer = (state = initialState, action: any) => {
+  switch (action.type) {
+    case 'ADD_TO_CART': {
+      const newListItem = [...state.listItem];
+      const index = newListItem.findIndex(
+        (obj: any) => obj.id === action.payload
+      );
       if (index < 0) {
-        let itemMatched = state.products.filter((item:any) => {
+        let itemMatched = state.products.filter((item: any) => {
           return item.id === action.payload;
         });
         newListItem.push(itemMatched[0]);
-      }else {
+      } else {
         newListItem[index].quantity++;
       }
       localStorage.setItem('cart', JSON.stringify(newListItem));
       return {
         ...state,
-        listItem:newListItem,
-      }
+        listItem: newListItem,
+      };
     }
 
-    case 'DELETE_FROM_CART':{
-      const newListItem=[...state.listItem];
-      const index = newListItem.findIndex((obj:any) => obj.id === action.payload);
+    case 'DELETE_FROM_CART': {
+      const newListItem = [...state.listItem];
+      const index = newListItem.findIndex(
+        (obj: any) => obj.id === action.payload
+      );
       if (newListItem[index].quantity <= 1) {
         return {
           ...state,
-          listItem:newListItem,
+          listItem: newListItem,
         };
       } else {
         newListItem[index].quantity--;
@@ -41,22 +44,25 @@ const cartReducer = (state=initialState,action:any)=>{
       localStorage.setItem('cart', JSON.stringify(newListItem));
       return {
         ...state,
-        listItem:newListItem,
-      }
+        listItem: newListItem,
+      };
     }
 
-    case 'REMOVE_ITEM':{
-      const newListItem=[...state.listItem];
-      const index = newListItem.findIndex((obj:any) => obj.id === action.payload);
-      newListItem.splice(index,1);
+    case 'REMOVE_ITEM': {
+      const newListItem = [...state.listItem];
+      const index = newListItem.findIndex(
+        (obj: any) => obj.id === action.payload
+      );
+      newListItem.splice(index, 1);
       localStorage.setItem('cart', JSON.stringify(newListItem));
       return {
         ...state,
-        listItem:newListItem,
-      }
+        listItem: newListItem,
+      };
     }
-    default: return state;
+    default:
+      return state;
   }
-}
+};
 
-export default cartReducer
+export default cartReducer;

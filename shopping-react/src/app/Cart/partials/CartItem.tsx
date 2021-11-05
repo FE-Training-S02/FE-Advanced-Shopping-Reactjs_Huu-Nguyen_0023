@@ -1,10 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import { productAttribute } from "app/shared/model/product-interface";
-import cancelIcon from "assets/images/cancel.svg";
+import { productAttribute } from 'app/shared/model/product-interface';
 
-import { useDispatch } from "react-redux";
-import { addToCart, deleteFromCart, removeItem } from "store/cart/actions";
+import { useDispatch } from 'react-redux';
+import { addToCart, deleteFromCart, removeItem } from 'store/cart/actions';
+
+import cancelIcon from 'assets/images/cancel.svg';
 
 const CartItem = (props: productAttribute) => {
   const { id, name, url, color, size, price, quantity } = props;
@@ -25,13 +26,18 @@ const CartItem = (props: productAttribute) => {
       <td className="table-content text-center col-xl-3">
         <div className="amount btn btn-outline">
           <p
-            className={quantity === 1 ? "decrease-quantity disable" : "decrease-quantity"}
+            className={
+              quantity === 1 ? 'decrease-quantity disable' : 'decrease-quantity'
+            }
             onClick={() => dispatch(deleteFromCart(id))}
           >
             -
           </p>
           <p className="quantity">{quantity}</p>
-          <p className="increase-quantity" onClick={() => dispatch(addToCart(id))}>
+          <p
+            className="increase-quantity"
+            onClick={() => dispatch(addToCart(id))}
+          >
             +
           </p>
         </div>

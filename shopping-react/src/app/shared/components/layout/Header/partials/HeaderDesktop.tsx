@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import logo from "assets/images/logo.svg";
-import cart from "assets/images/cart.svg";
-import avatar from "assets/images/avatar.svg";
-import search from "assets/images/search.svg";
+import logo from 'assets/images/logo.svg';
+import cart from 'assets/images/cart.svg';
+import avatar from 'assets/images/avatar.svg';
+import search from 'assets/images/search.svg';
 
 const HeaderDesktop = () => {
   return (
@@ -45,7 +45,11 @@ const HeaderDesktop = () => {
             </li>
             <li className="list-item">
               <Link to="/cart" className="logo-link">
-                <img className="redirect-cart-page" src={cart} alt="cart_icon" />
+                <img
+                  className="redirect-cart-page"
+                  src={cart}
+                  alt="cart_icon"
+                />
                 <div className="cart"></div>
               </Link>
             </li>

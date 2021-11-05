@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import logo from "assets/images/logo_black.svg";
-import searchIcon from "assets/images/search_black.svg";
-import cartIcon from "assets/images/cart_black.svg";
-import avatarIcon from "assets/images/avatar_black.svg";
+import logo from 'assets/images/logo_black.svg';
+import searchIcon from 'assets/images/search_black.svg';
+import cartIcon from 'assets/images/cart_black.svg';
+import avatarIcon from 'assets/images/avatar_black.svg';
 
 const Header = () => {
   return (

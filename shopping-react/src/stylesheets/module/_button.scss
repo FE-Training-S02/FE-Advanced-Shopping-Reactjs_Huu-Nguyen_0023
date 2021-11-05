@@ -1,5 +1,5 @@
 .btn {
-  @include font-size-weight(map-get($font-size, "s"), 800);
+  @include font-size-weight(map-get($font-size, 's'), 800);
   @include flex-center;
   cursor: pointer;
   height: 2.8rem;
@@ -8,12 +8,12 @@
   border: none;
   text-transform: uppercase;
   white-space: nowrap;
-  background-color: map-get($color, "white");
+  background-color: map-get($color, 'white');
   &.btn-outline {
-    border: 1px solid map-get($color, "gray-e");
+    border: 1px solid map-get($color, 'gray-e');
     background-color: transparent;
   }
   &.btn-primary {
-    background-color: map-get($color, "primary");
+    background-color: map-get($color, 'primary');
   }
 }

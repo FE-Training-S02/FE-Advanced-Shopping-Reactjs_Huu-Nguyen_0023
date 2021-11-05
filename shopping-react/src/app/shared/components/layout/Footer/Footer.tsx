@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import facebookIcon from "assets/images/facebook.png";
-import instagramIcon from "assets/images/instagram.png";
-import linkedInIcon from "assets/images/LinkedIn.png";
-import logo from "assets/images/logo.svg";
-import twitterIcon from "assets/images/twitter.png";
-import youtubeIcon from "assets/images/youtube.png";
+import facebookIcon from 'assets/images/facebook.png';
+import instagramIcon from 'assets/images/instagram.png';
+import linkedInIcon from 'assets/images/LinkedIn.png';
+import logo from 'assets/images/logo.svg';
+import twitterIcon from 'assets/images/twitter.png';
+import youtubeIcon from 'assets/images/youtube.png';
 
 const Footer = () => {
   return (
@@ -22,8 +22,9 @@ const Footer = () => {
                   </a>
                 </h2>
                 <h4 className="description-content">
-                  House My Brand designs clothing for the young, the old &amp; everyone in between –
-                  but most importantly, for the fashionable
+                  House My Brand designs clothing for the young, the old &amp;
+                  everyone in between – but most importantly, for the
+                  fashionable
                 </h4>
                 <div className="social-network">
                   <ul className="list-group">
@@ -58,7 +59,9 @@ const Footer = () => {
             </div>
             <ul className="list-group shop-detail col-12 col-xl-6">
               <li className="list-item ">
-                <h4 className="item-title shop-detail-title ">Shopping online</h4>
+                <h4 className="item-title shop-detail-title ">
+                  Shopping online
+                </h4>
                 <ul className="list-group">
                   <li className="list-item shop-detail-item">
                     <a className="shop-detail-content" href="/#">
@@ -124,7 +127,9 @@ const Footer = () => {
                     <p className="shop-detail-content">store&#64;uikit.com</p>
                   </li>
                   <li className="list-item shop-detail-item">
-                    <p className="shop-detail-content">Hotline: +1 131 138 138</p>
+                    <p className="shop-detail-content">
+                      Hotline: +1 131 138 138
+                    </p>
                   </li>
                 </ul>
               </li>

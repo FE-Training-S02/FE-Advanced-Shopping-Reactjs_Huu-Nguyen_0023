@@ -1,6 +1,7 @@
-import React from "react";
-import Service from "./partials/Service";
-import arrow from "assets/images/arrow.svg";
+import React from 'react';
+
+import Service from './partials/Service';
+import arrow from 'assets/images/arrow.svg';
 
 const TopBanner = () => {
   return (

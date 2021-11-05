@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import paymentIcon from "assets/images/payment.svg";
-import shipIcon from "assets/images/ship.svg";
-import guaranteeIcon from "assets/images/guarantee.svg";
-import materialIcon from "assets/images/material.svg";
+import paymentIcon from 'assets/images/payment.svg';
+import shipIcon from 'assets/images/ship.svg';
+import guaranteeIcon from 'assets/images/guarantee.svg';
+import materialIcon from 'assets/images/material.svg';
 
 const Introduction = () => {
   return (
@@ -19,7 +19,8 @@ const Introduction = () => {
               <div className="card-detail">
                 <h4 className="card-title">Free Shipping</h4>
                 <p className="card-description">
-                  All purchases over $199 are eligible for free shipping via USPS First Class Mail.
+                  All purchases over $199 are eligible for free shipping via
+                  USPS First Class Mail.
                 </p>
               </div>
             </div>
@@ -30,7 +31,8 @@ const Introduction = () => {
               <div className="card-detail">
                 <h4 className="text-primary card-title">Easy Payments</h4>
                 <p className="card-description">
-                  All payments are processed instantly over a secure payment protocol.
+                  All payments are processed instantly over a secure payment
+                  protocol.
                 </p>
               </div>
             </div>
@@ -41,8 +43,8 @@ const Introduction = () => {
               <div className="card-detail">
                 <h4 className="card-title">Money-Back Guarantee</h4>
                 <p className="card-description">
-                  If an item arrived damaged or you've changed your mind, you can send it back for a
-                  full refund.
+                  If an item arrived damaged or you've changed your mind, you
+                  can send it back for a full refund.
                 </p>
               </div>
             </div>
@@ -53,7 +55,8 @@ const Introduction = () => {
               <div className="card-detail">
                 <h4 className="card-title">Finest Quality</h4>
                 <p className="card-description">
-                  Designed to last, each of our products has been crafted with the finest materials.
+                  Designed to last, each of our products has been crafted with
+                  the finest materials.
                 </p>
               </div>
             </div>
