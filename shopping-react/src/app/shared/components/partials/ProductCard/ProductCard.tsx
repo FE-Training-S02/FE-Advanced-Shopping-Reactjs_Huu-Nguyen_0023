@@ -10,7 +10,9 @@ const ProductCard = (props: productAttribute) => {
   return (
     <li key={id} className="list-item col-6 col-xl-3">
       <div className="card product-card">
-        <img className="card-image" src={url} alt={name} />
+        <div className="card-image">
+          <img src={url} alt={name} />
+        </div>
         {discount > 0 ? <p className="badge badge-danger">{discount * 100}%</p> : ""}
         <button
           className="btn btn-primary add-cart-btn"

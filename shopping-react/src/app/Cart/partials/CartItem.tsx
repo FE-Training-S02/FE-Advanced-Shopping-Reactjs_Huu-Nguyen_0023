@@ -3,8 +3,8 @@ import React from "react";
 import { productAttribute } from "app/shared/model/product-interface";
 import cancelIcon from "assets/images/cancel.svg";
 
-import { addToCart, deleteFromCart, removeItem } from "store/cart/actions";
 import { useDispatch } from "react-redux";
+import { addToCart, deleteFromCart, removeItem } from "store/cart/actions";
 
 const CartItem = (props: productAttribute) => {
   const { id, name, url, color, size, price, quantity } = props;

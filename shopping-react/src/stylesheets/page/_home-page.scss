@@ -126,6 +126,14 @@
   }
   .product-card {
     position: relative;
+    .card-image{
+      position: relative;
+      overflow: hidden;
+    }
+    &:hover>.card-image::after{
+      @include mask-gray;
+      top:-3px;
+    }
     .badge {
       position: absolute;
       top: 5%;
