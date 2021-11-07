@@ -3,10 +3,15 @@ import React from 'react';
 import { productAttribute } from 'app/shared/model/product-interface';
 import { useDispatch } from 'react-redux';
 import { addToCart } from 'store/cart/actions';
+import { addToast } from 'store/toast/actions';
 
 const ProductCard = (props: productAttribute) => {
   const { id, name, url, price, discount } = props;
   const dispatch = useDispatch();
+  const handleAddToCart = () => {
+    dispatch(addToCart(id));
+    dispatch(addToast({ text: 'Added to cart!' }));
+  };
   return (
     <li key={id} className="list-item col-6 col-xl-3">
       <div className="card product-card">
@@ -20,7 +25,7 @@ const ProductCard = (props: productAttribute) => {
         )}
         <button
           className="btn btn-primary add-cart-btn"
-          onClick={() => dispatch(addToCart(id))}
+          onClick={() => handleAddToCart()}
         >
           ADD TO CART
         </button>

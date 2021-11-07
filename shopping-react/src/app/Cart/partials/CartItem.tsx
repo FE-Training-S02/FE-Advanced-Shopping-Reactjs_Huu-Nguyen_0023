@@ -6,10 +6,23 @@ import { useDispatch } from 'react-redux';
 import { addToCart, deleteFromCart, removeItem } from 'store/cart/actions';
 
 import cancelIcon from 'assets/images/cancel.svg';
+import { addToast } from 'store/toast/actions';
 
 const CartItem = (props: productAttribute) => {
   const { id, name, url, color, size, price, quantity } = props;
   const dispatch = useDispatch();
+  const handleDeleteItem = () => {
+    dispatch(deleteFromCart(id));
+    dispatch(addToast({ text: 'Decreased Item', color: '#FBB03B' }));
+  };
+  const handleIncreaseItem = () => {
+    dispatch(addToCart(id));
+    dispatch(addToast({ text: 'Increased Item' }));
+  };
+  const handleRemoveItem = () => {
+    dispatch(removeItem(id));
+    dispatch(addToast({ text: 'Removed Item', color: '#FD7E14' }));
+  };
   return (
     <tr key={id} className="table-row">
       <td className="table-content col-xl-4">
@@ -29,15 +42,12 @@ const CartItem = (props: productAttribute) => {
             className={
               quantity === 1 ? 'decrease-quantity disable' : 'decrease-quantity'
             }
-            onClick={() => dispatch(deleteFromCart(id))}
+            onClick={() => handleDeleteItem()}
           >
             -
           </p>
           <p className="quantity">{quantity}</p>
-          <p
-            className="increase-quantity"
-            onClick={() => dispatch(addToCart(id))}
-          >
+          <p className="increase-quantity" onClick={() => handleIncreaseItem()}>
             +
           </p>
         </div>
@@ -50,7 +60,7 @@ const CartItem = (props: productAttribute) => {
           className="cancel-cross"
           src={cancelIcon}
           alt="cancel"
-          onClick={() => dispatch(removeItem(id))}
+          onClick={() => handleRemoveItem()}
         />
       </td>
     </tr>
