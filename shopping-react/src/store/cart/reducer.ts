@@ -26,27 +26,18 @@ const cartReducer = (state = initialState, action: any) => {
         listItem: newListItem,
       };
     }
-
     case 'DELETE_FROM_CART': {
       const newListItem = [...state.listItem];
       const index = newListItem.findIndex(
         (obj: any) => obj.id === action.payload
       );
-      if (newListItem[index].quantity <= 1) {
-        return {
-          ...state,
-          listItem: newListItem,
-        };
-      } else {
-        newListItem[index].quantity--;
-      }
+      newListItem[index].quantity--;
       localStorage.setItem('cart', JSON.stringify(newListItem));
       return {
         ...state,
         listItem: newListItem,
       };
     }
-
     case 'REMOVE_ITEM': {
       const newListItem = [...state.listItem];
       const index = newListItem.findIndex(

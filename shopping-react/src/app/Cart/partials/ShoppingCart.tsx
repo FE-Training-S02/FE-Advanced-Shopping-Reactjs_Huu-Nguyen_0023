@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
@@ -12,16 +12,22 @@ import deliveryIcon from 'assets/images/delivery.svg';
 import { useSelector } from 'react-redux';
 import { rootState } from 'store/rootReducer';
 import { productAttribute } from 'app/shared/model/product-interface';
+import ConfirmBox from 'app/shared/components/partials/ComfirmBox/ConfirmBox';
 
 const ShoppingCart = () => {
-  const listCartItem: productAttribute[] = useSelector(
-    (state: rootState) => state.cart?.listItem
-  );
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [selectedId, setSelectedId] = useState('');
+
+  const listCartItem: productAttribute[] = useSelector((state: rootState) => state.cart?.listItem);
   const totalPrice = listCartItem.reduce(
-    (total: number, item: productAttribute) =>
-      total + (item.quantity || 1) * item.price,
+    (total: number, item: productAttribute) => total + (item.quantity || 1) * item.price,
     0
   );
+
+  const onShowDialog = (id: string) => {
+    setShowConfirm(true);
+    setSelectedId(id);
+  };
 
   return (
     <section className="section-shopping-cart">
@@ -41,15 +47,15 @@ const ShoppingCart = () => {
                 <td className="table-title col-xl-4">Product</td>
                 <td className="table-title text-center col-xl-2">Color</td>
                 <td className="table-title text-center col-xl-1">Size</td>
-                <td className="table-title text-center col-xl-1 text-align-center">
-                  Amount
-                </td>
+                <td className="table-title text-center col-xl-1 text-align-center">Amount</td>
                 <td className="table-title text-center col-xl-3">Price</td>
                 <td className="table-title text-center col-xl-1"></td>
               </tr>
             </thead>
             <tbody className="shopping-product-table">
-              {listCartItem?.map((item: productAttribute) => CartItem(item))}
+              {listCartItem?.map((item: productAttribute) =>
+                CartItem({ ...item, onDialogHandler: onShowDialog })
+              )}
             </tbody>
           </table>
           <form className="checkout-form row">
@@ -59,11 +65,7 @@ const ShoppingCart = () => {
               </Link>
             </h4>
             <div className="btn btn-outline input-area col-xl-3">
-              <input
-                className="input-code"
-                type="text"
-                placeholder="Promo code"
-              />
+              <input className="input-code" type="text" placeholder="Promo code" />
               <img src={sendIcon} alt="send" />
             </div>
             <div className="total-area col-xl-2">
@@ -76,6 +78,11 @@ const ShoppingCart = () => {
           </form>
         </div>
       </div>
+      <ConfirmBox
+        showConfirm={showConfirm}
+        setShowConfirm={setShowConfirm}
+        selectedId={selectedId}
+      />
     </section>
   );
 };
