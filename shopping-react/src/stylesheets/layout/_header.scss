@@ -1,6 +1,6 @@
 .page-header {
-  @include font-size-weight(map-get($font-size, "xl"), 700);
-  background-color: map-get($color, "white");
+  @include font-size-weight(map-get($font-size, 'xl'), 700);
+  background-color: map-get($color, 'white');
   width: 100%;
   height: 5rem;
   padding: 1rem;
@@ -14,7 +14,7 @@
     display: block;
     padding: 0.5rem;
     .logo-link {
-      color: map-get($color, "black");
+      color: map-get($color, 'black');
     }
   }
   .header-logo {
@@ -23,11 +23,23 @@
       height: 3rem;
     }
   }
+  .list-item {
+    position: relative;
+  }
+  .cart-quantity {
+    @include font-size-weight(map-get($font-size, 's'), 600);
+    position: absolute;
+    top: -0.5rem;
+    right: -1.25rem;
+    padding: 0 0.5rem;
+    border-radius: 0.5rem;
+    background-color: map-get($color, 'primary');
+  }
   .logo-link,
   .nav-link {
     @include flex-center-between;
-    @include font-size-weight(map-get($font-size, "xxl"), 700);
-    color: map-get($color, "primary");
+    @include font-size-weight(map-get($font-size, 'xxl'), 700);
+    color: map-get($color, 'primary');
     white-space: nowrap;
   }
   .navigation {
@@ -51,7 +63,7 @@
       flex-direction: row;
     }
     .logo-link {
-      color: map-get($color, "white");
+      color: map-get($color, 'white');
     }
   }
 }

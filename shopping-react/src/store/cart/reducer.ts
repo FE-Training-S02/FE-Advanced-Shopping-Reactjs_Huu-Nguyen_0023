@@ -1,4 +1,3 @@
-// import { productAttribute } from 'app/shared/model/product-interface';
 import listProduct from 'app/shared/fake-data/list-product.json';
 
 const initialState = {

@@ -2,12 +2,26 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
+import { useSelector } from 'react-redux';
+
+import {rootState} from 'store/rootReducer';
+
+import { productAttribute } from 'app/shared/model/product-interface';
+
 import logo from 'assets/images/logo.svg';
 import cart from 'assets/images/cart.svg';
 import avatar from 'assets/images/avatar.svg';
 import search from 'assets/images/search.svg';
 
 const HeaderDesktop = () => {
+  const listCartItem: productAttribute[] = useSelector(
+    (state: rootState) => state.cart?.listItem
+  );
+  const totalPrice = listCartItem.reduce(
+    (total: number, item: productAttribute) =>
+      total + (item.quantity || 1),
+    0
+  );
   return (
     <div className="header-desktop container">
       <div className="row">
@@ -50,7 +64,7 @@ const HeaderDesktop = () => {
                   src={cart}
                   alt="cart_icon"
                 />
-                <div className="cart"></div>
+                <div className="cart-quantity">{totalPrice}</div>
               </Link>
             </li>
             <li className="list-item">

@@ -13,15 +13,19 @@ const CartItem = (props: productAttribute) => {
   const dispatch = useDispatch();
   const handleDeleteItem = () => {
     dispatch(deleteFromCart(id));
-    dispatch(addToast({ text: 'Decreased Item', color: '#FBB03B' }));
+    dispatch(
+      addToast({ text: 'Decreased Item', color: '#FBB03B', confirm: false })
+    );
   };
   const handleIncreaseItem = () => {
     dispatch(addToCart(id));
-    dispatch(addToast({ text: 'Increased Item' }));
+    dispatch(addToast({ text: 'Increased Item', confirm: false }));
   };
   const handleRemoveItem = () => {
     dispatch(removeItem(id));
-    dispatch(addToast({ text: 'Removed Item', color: '#FD7E14' }));
+    dispatch(
+      addToast({ text: 'Removed Item', color: '#FD7E14', confirm: true })
+    );
   };
   return (
     <tr key={id} className="table-row">
