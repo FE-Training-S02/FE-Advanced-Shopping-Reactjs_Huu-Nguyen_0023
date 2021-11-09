@@ -75,11 +75,14 @@
       }
       .decrease-quantity,
       .increase-quantity {
+        @include flex-center;
+        @include font-size-weight(map-get($font-size, 'xxl'), 400);
         width: 1rem;
         height: 1rem;
-        font-size: map-get($font-size, 'xxl');
-        font-weight: normal;
-        @include flex-center;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        outline: none;
       }
       .table-title {
         height: 80px;
@@ -90,8 +93,8 @@
           cursor: pointer;
         }
         .mini-card {
-          margin: 1rem 0;
           @include align-center;
+          margin: 1rem 0;
           .mini-card-image {
             width: 60px;
             height: 60px;

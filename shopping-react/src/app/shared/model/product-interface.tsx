@@ -8,3 +8,8 @@ export interface productAttribute {
   discount: number;
   quantity: number;
 }
+
+export interface productInCartAttribute {
+  id: string;
+  quantity: number;
+}

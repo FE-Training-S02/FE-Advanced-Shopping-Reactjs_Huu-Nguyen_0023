@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { productAttribute} from 'app/shared/model/product-interface';
+import { productAttribute } from 'app/shared/model/product-interface';
 
 import { useDispatch } from 'react-redux';
 import { addToCart, deleteFromCart } from 'store/cart/actions';
@@ -8,10 +8,10 @@ import { addToCart, deleteFromCart } from 'store/cart/actions';
 import cancelIcon from 'assets/images/cancel.svg';
 import { addToast } from 'store/toast/actions';
 
-const CartItem = (props: productAttribute & {onDialogHandler: (id: string) => void}) => {
+const CartItem = (props: productAttribute & { onDialogHandler: (id: string) => void }) => {
   const { id, name, url, color, size, price, quantity, onDialogHandler } = props;
   const dispatch = useDispatch();
-  const handleDeleteItem = () => {
+  const handleDecreaseItem = () => {
     if (quantity === 1) {
       return;
     } else {
@@ -38,16 +38,16 @@ const CartItem = (props: productAttribute & {onDialogHandler: (id: string) => vo
       <td className="table-content text-center col-xl-1">{size}</td>
       <td className="table-content text-center col-xl-3">
         <div className="amount btn btn-outline">
-          <p
+          <button
             className={quantity === 1 ? 'decrease-quantity disable' : 'decrease-quantity'}
-            onClick={() => handleDeleteItem()}
+            onClick={() => handleDecreaseItem()}
           >
             -
-          </p>
+          </button>
           <p className="quantity">{quantity}</p>
-          <p className="increase-quantity" onClick={() => handleIncreaseItem()}>
+          <button className="increase-quantity" onClick={() => handleIncreaseItem()}>
             +
-          </p>
+          </button>
         </div>
       </td>
       <td className="product-total-price table-content text-center col-xl-1">

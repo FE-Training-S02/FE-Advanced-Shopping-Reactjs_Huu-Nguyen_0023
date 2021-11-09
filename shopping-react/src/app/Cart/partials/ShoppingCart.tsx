@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
@@ -11,15 +11,31 @@ import deliveryIcon from 'assets/images/delivery.svg';
 
 import { useSelector } from 'react-redux';
 import { rootState } from 'store/rootReducer';
-import { productAttribute } from 'app/shared/model/product-interface';
+import { productAttribute, productInCartAttribute } from 'app/shared/model/product-interface';
 import ConfirmBox from 'app/shared/components/partials/ComfirmBox/ConfirmBox';
 
 const ShoppingCart = () => {
   const [showConfirm, setShowConfirm] = useState(false);
   const [selectedId, setSelectedId] = useState('');
+  const [listItem, setListItem] = useState([]);
+  const listCartItem: productInCartAttribute[] = useSelector(
+    (state: rootState) => state.cart?.listItem
+  );
+  const listProduct: productAttribute[] = useSelector((state: rootState) => state.cart?.products);
+  useEffect(() => {
+    const currentItem: any = [];
+    listCartItem.forEach((CartItem) => {
+      listProduct.forEach((product) => {
+        if (CartItem.id === product.id) {
+          product.quantity = CartItem.quantity;
+          currentItem.push(product);
+        }
+      });
+    });
+    setListItem(() => currentItem);
+  }, [listCartItem, listProduct]);
 
-  const listCartItem: productAttribute[] = useSelector((state: rootState) => state.cart?.listItem);
-  const totalPrice = listCartItem.reduce(
+  const totalPrice = listItem.reduce(
     (total: number, item: productAttribute) => total + (item.quantity || 1) * item.price,
     0
   );
@@ -53,7 +69,7 @@ const ShoppingCart = () => {
               </tr>
             </thead>
             <tbody className="shopping-product-table">
-              {listCartItem?.map((item: productAttribute) =>
+              {listItem?.map((item: productAttribute) =>
                 CartItem({ ...item, onDialogHandler: onShowDialog })
               )}
             </tbody>
