@@ -1,0 +1,42 @@
+[
+  {
+    "id": "53581",
+    "name": "T-Shirt Summer Vibes",
+    "url": "./images/t_shirt_summer.png",
+    "color": "White",
+    "size": "XL",
+    "price": 119.99,
+    "discount": 0.3,
+    "quantity": 1
+  },
+  {
+    "id": "25687",
+    "name": "Loose Knit 3/4 Sleeve",
+    "url": "./images/loose_knit_sleeve.png",
+    "color": "White",
+    "size": "XL",
+    "price": 119.99,
+    "discount": 0,
+    "quantity": 1
+  },
+  {
+    "id": "58762",
+    "name": "Basic Slim Fit T-Shirt",
+    "url": "./images/slim_fit_t_shirt.png",
+    "color": "Black",
+    "size": "XL",
+    "price": 79.99,
+    "discount": 0,
+    "quantity": 1
+  },
+  {
+    "id": "42546",
+    "name": "Loose Textured T-Shirt",
+    "url": "./images/loose_textured_t_shirt.png",
+    "color": "Black",
+    "size": "XL",
+    "price": 119.99,
+    "discount": 0,
+    "quantity": 1
+  }
+]
